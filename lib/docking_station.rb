@@ -28,6 +28,7 @@ class DockingStation
     @bikes.length >= capacity ? true : false
   end
 
+
   def empty?
     @bikes.length == 0 ? true : false
   end
