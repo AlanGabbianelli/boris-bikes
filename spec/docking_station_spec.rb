@@ -3,6 +3,24 @@ require 'docking_station'
 describe DockingStation do
   it { is_expected.to respond_to :release_bike }
 
+  describe '#initialize' do
+
+    let(:bike) {Bike.new}
+
+    it 'variable capacity' do
+      docking_station = DockingStation.new(20)
+      20.times { subject.dock(bike) }
+      expect { subject.dock(bike) }.to raise_error 'Docking Station is already full'
+    end
+
+    it 'has default capacity' do
+      docking_station = DockingStation.new
+      described_class::DEFAULT_CAPACITY.times { subject.dock(bike) }
+      expect { subject.dock(bike) }.to raise_error 'Docking Station is already full'
+    end
+
+  end
+
   it 'releases working bikes' do
     bike = Bike.new
     subject.dock(bike)
@@ -39,7 +57,7 @@ describe DockingStation do
     end
 
     it 'raises an error when bike is already docked' do
-      DockingStation::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
+      subject.capacity.times { subject.dock(Bike.new) }
       expect { subject.dock(Bike.new) }.to raise_error 'Docking Station is already full'
     end
 
