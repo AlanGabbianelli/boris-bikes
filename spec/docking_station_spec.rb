@@ -44,4 +44,13 @@ describe DockingStation do
     end
 
   end
+
+#  it 'returns true when docking station is full' do
+#    20.times { subject.dock(Bike.new) }
+#    expect( subject.full? ).to eq true
+#  end
+#
+#  it 'returns true when docking station is empty' do
+#    expect( subject.empty? ).to eq true
+#  end
 end
