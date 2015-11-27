@@ -32,7 +32,11 @@ describe DockingStation do
   describe '#release_bike' do
 
     it 'releases working bikes' do
+
       bike = double(:bike)
+      #bike = double(:bike, working?: true, broken?: false)
+      allow(bike).to receive(:working?).and_return(true)
+      allow(bike).to receive(:broken?).and_return(false)
       subject.dock(bike)
       bike = subject.release_bike
       expect(bike.working?).to eq true
