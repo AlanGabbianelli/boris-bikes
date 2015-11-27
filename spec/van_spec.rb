@@ -12,6 +12,4 @@ describe Van do
     expect(subject.bikes_on_board).to eq [bike]
   end
 
-
-
 end
