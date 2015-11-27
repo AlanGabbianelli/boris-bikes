@@ -35,14 +35,7 @@ describe DockingStation do
       bike = Bike.new
       subject.dock(bike)
       bike = subject.release_bike
-      expect(bike.working).to eq true
-    end
-
-    it 'raises error if bike is broken' do
-      bike = Bike.new
-      bike.working = false
-      subject.dock(bike)
-      expect{subject.release_bike}.to raise_error "This bike is broken"
+      expect(bike.working?).to eq true
     end
 
     it 'releases a bike' do
@@ -53,6 +46,13 @@ describe DockingStation do
 
     it 'raises an error when there are no bikes available' do
       expect { subject.release_bike }.to raise_error 'No bikes available'
+    end
+
+    it 'raises an error when trying to release broken bikes' do
+      bike = Bike.new
+      bike.report_broken
+      subject.dock(bike)
+      expect{ subject.release_bike }.to raise_error 'This bike is broken'
     end
   end
 
