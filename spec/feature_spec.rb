@@ -14,5 +14,18 @@ describe 'feature test' do
 
   end
 
+  it 'van can deliver broken bikes to a garage' do
+    bike = Bike.new
+    station = Station.new
+    van = Van.new
+    garage = Garage.new
+    bike.report_broken
+    station.dock(bike)
+    van.collect_bikes(station)
+    van.deliver(garage)
+    expect(garage.bikes_to_be_fixed).to eq [bike]
+
+  end
+
 
 end
