@@ -69,4 +69,24 @@ let(:bike) {double :bike}
     end
 
   end
+
+  describe '#separate_broken_bikes' do
+    it 'can separate broken bikes' do
+      working_bike = double(:bike, broken?: false)
+      broken_bike = double(:bike, broken?: true)
+      subject.dock(working_bike)
+      subject.dock(broken_bike)
+      expect(subject.separate_broken_bikes).to eq [broken_bike]
+    end
+
+    it 'can separate working bikes' do
+      working_bike = double(:bike, broken?: false)
+      broken_bike = double(:bike, broken?: true)
+      subject.dock(working_bike)
+      subject.dock(broken_bike)
+      subject.separate_broken_bikes
+      expect(subject.bikes).to eq [working_bike]
+    end
+  end
+
 end

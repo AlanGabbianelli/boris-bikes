@@ -3,7 +3,7 @@ require 'van'
 
 describe 'feature test' do
 
-  it ' van collects broken bikes from station' do
+  it 'van collects broken bikes from station' do
     bike = Bike.new
     station = DockingStation.new
     van = Van.new

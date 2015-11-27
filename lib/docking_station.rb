@@ -2,7 +2,7 @@ require_relative 'bike'
 
 class DockingStation
 
-  attr_reader :bikes, :capacity
+  attr_reader :bikes, :capacity, :broken_bikes
 
   DEFAULT_CAPACITY = 20
 
@@ -22,6 +22,12 @@ class DockingStation
     @bikes << bike
   end
 
+  def separate_broken_bikes
+    @broken_bikes = @bikes.select { |bike| bike.broken? }
+    remove_broken_bikes_from_dock
+    @broken_bikes
+  end
+
   private
 
   def full?
@@ -32,4 +38,9 @@ class DockingStation
   def empty?
     @bikes.length == 0 ? true : false
   end
+
+  def remove_broken_bikes_from_dock
+    @bikes = @bikes.reject { |bike| bike.broken? }
+  end
+
 end
