@@ -7,7 +7,7 @@ describe DockingStation do
   it { is_expected.to respond_to :release_bike }
 
   describe '#initialize' do
-    it 'variable capacity' do
+    it 'has variable capacity' do
       error = 'Docking Station is already full'
       docking_station_2 = described_class.new(30)
       30.times { docking_station_2.dock(bike) }
@@ -16,7 +16,7 @@ describe DockingStation do
 
     it 'has default capacity' do
       error = 'Docking Station is already full'
-      described_class::DEFAULT_CAPACITY.times { subject.dock(bike) }
+      docking_station.capacity.times { docking_station.dock(bike) }
       expect { docking_station.dock(bike) }.to raise_error error
     end
   end
@@ -24,7 +24,7 @@ describe DockingStation do
   it { is_expected.to respond_to(:bikes) }
 
   it 'returns docked bikes' do
-    subject.dock(bike)
+    docking_station.dock(bike)
     expect(docking_station.bikes.last).to eq bike
   end
 
@@ -60,7 +60,7 @@ describe DockingStation do
     it { is_expected.to respond_to(:dock).with(1).argument }
 
     it 'docks something' do
-      expect(docking_station.dock(bike)).to eq subject.bikes
+      expect(docking_station.dock(bike)).to eq docking_station.bikes
     end
 
     it 'raises an error when bike is already docked' do

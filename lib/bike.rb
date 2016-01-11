@@ -8,6 +8,6 @@ class Bike
   end
 
   def broken?
-    @broken
+    @broken == nil ? false : true
   end
 end

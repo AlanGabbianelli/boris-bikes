@@ -5,9 +5,15 @@
         1,
         null,
         1,
-        2,
+        4,
         null,
-        2,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
         null,
         1,
         1,
@@ -18,7 +24,7 @@
       "/Users/alan/Projects/boris-bikes/lib/bike.rb": [
         1,
         1,
-        0,
+        1,
         null,
         null,
         1,
@@ -26,7 +32,7 @@
         null,
         null,
         1,
-        5,
+        7,
         null,
         null
       ],
@@ -132,8 +138,8 @@
         1,
         null,
         1,
-        19,
-        19,
+        16,
+        16,
         null,
         null,
         1,
@@ -144,7 +150,7 @@
         null,
         1,
         84,
-        82,
+        81,
         null,
         null,
         1,
@@ -252,6 +258,6 @@
         null
       ]
     },
-    "timestamp": 1452541506
+    "timestamp": 1452544712
   }
 }
