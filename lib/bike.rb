@@ -1,5 +1,4 @@
 class Bike
-
   def working?
     !broken?
   end
@@ -11,5 +10,4 @@ class Bike
   def broken?
     @broken
   end
-
 end

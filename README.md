@@ -1,4 +1,4 @@
-Boris Bikes Software
+Boris Bikes
 
 What is it?
 --------------------
